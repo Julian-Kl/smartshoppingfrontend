@@ -18,6 +18,7 @@ import Start from './components/Start';
 import List from './components/List';
 import Preferences from './components/Preferences';
 import Products from './components/Products';
+import Search from './components/Search';
 
 // Bootstrap
 import Container from 'react-bootstrap/Container';
@@ -50,7 +51,7 @@ function App() {
     const location = useLocation();
 
     // Export
-    if (location.pathname != "/" && user == false) {
+    if (location.pathname !== "/" && user === false) {
         return(
             <Redirect to="/"/>
         )
@@ -68,6 +69,7 @@ function App() {
                                             <Route path="/" exact component={Start}/>
                                             <Route path="/list" component={List}/>
                                             <Route path="/products" component={Products}/>
+                                            <Route path="/search/:value" component={Search}/>
                                         </ListContext.Provider>
                                         <Route path="/preferences" component={Preferences}/>
                                     </LoginStatus.Provider>

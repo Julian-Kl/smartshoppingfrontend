@@ -2,10 +2,10 @@
 // Import
  */
 // React
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 // Router
-import {Link, useLocation} from "react-router-dom";
+import {Link, Redirect, useLocation} from "react-router-dom";
 
 // Context
 import LoginStatus from '../contexts/LoginContext';
@@ -41,8 +41,13 @@ function NavBar() {
     // Context List
     const {setList} = useContext(ListContext);
 
-    // Location
-    const location = useLocation();
+    // State
+    const [searchValue, setSearchValue] = useState('');
+    const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+        setRedirect(false);
+    }, [])
 
     // Dropdown Menu
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -53,91 +58,107 @@ function NavBar() {
         setAnchorEl(null);
     };
 
+    const location = useLocation();
+
+
     // Sitename Funktion
     const siteName = () => {
         switch (location.pathname) {
+            default:
+                return("SmartShopping");
             case "/":
                 return("Startseite");
-                break;
             case "/preferences":
                 return("Präferenzen");
-                break;
             case "/products":
                 return("Alle Produkte");
-                break;
             case "/list":
                 return("Einkaufsliste");
-                break;
             case "/search":
                 return("Suche");
-                break;
         }
     }
 
     // Autocomplete Options
     const searchItems = ["Milch", "Brot", "Käse"];
+    const search = (e) => {
+        e.preventDefault();
+        setRedirect(true);
+    }
 
     // Export
-    return (
-        <React.Fragment>
-            <motion.div initial={{opacity: 0, y: -10}} animate={{opacity: 1, y:0}} transition={{delay: 0, duration: 0.4}}>
-                <Navbar expand="lg" variant="light" bg="light" className="justify-content-center rounded">
-                    <NavbarBrand className="navbar-brand cnavbar-location">
-                        {siteName()}
-                    </NavbarBrand>
-                    <Button aria-controls="simple-menu" aria-haspopup="true" color="primary" onClick={handleClick}>
-                        <MenuIcon/>
-                    </Button>
-                    <Menu
-                        id="simple-menu"
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        <Link to="/preferences">
-                            <MenuItem onClick={handleClose}>
+    if(redirect){
+        return(
+            <Redirect
+                to={{
+                    pathname: `/search/${searchValue}`
+                }}
+            />
+        );
+    } else {
+        return (
+            <React.Fragment>
+                <motion.div initial={{opacity: 0, y: -10}} animate={{opacity: 1, y:0}} transition={{delay: 0, duration: 0.4}}>
+                    <Navbar expand="lg" variant="light" bg="light" className="justify-content-center rounded">
+                        <NavbarBrand className="navbar-brand cnavbar-location">
+                            {siteName()}
+                        </NavbarBrand>
+                        <Button aria-controls="simple-menu" aria-haspopup="true" color="primary" onClick={handleClick}>
+                            <MenuIcon/>
+                        </Button>
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <Link to="/preferences">
+                                <MenuItem onClick={handleClose}>
                                     <NavItem className="clink">Präferenzen</NavItem>
-                            </MenuItem>
-                        </Link>
-                        <Link to="/products">
-                            <MenuItem onClick={handleClose}>
+                                </MenuItem>
+                            </Link>
+                            <Link to="/products">
+                                <MenuItem onClick={handleClose}>
                                     <NavItem className="clink">Alle Produkte</NavItem>
-                            </MenuItem>
-                        </Link>
-                        <Link onClick={() => {
-                            setList([]);
-                            setUser(false);
-                        }} to="/">
-                            <MenuItem onClick={handleClose}>
+                                </MenuItem>
+                            </Link>
+                            <Link onClick={() => {
+                                setList([]);
+                                setUser(false);
+                            }} to="/">
+                                <MenuItem onClick={handleClose}>
                                     <NavItem className="clink">Logout</NavItem>
-                            </MenuItem>
-                        </Link>
-                    </Menu>
-                    <Link to="/list">
-                        <Button>
+                                </MenuItem>
+                            </Link>
+                        </Menu>
+                        <Link to="/list">
+                            <Button>
                                 <ShoppingBasketIcon href="/home/list" aria-controls="simple-menu" aria-haspopup="true" color="primary" size="large"/>
-                        </Button>
-                    </Link>
-                    <Form inline className="NavForm">
-                        <Autocomplete
-                            freeSolo
-                            id="productSearch"
-                            className="mr-sm-2"
-                            options={searchItems}
-                            getOptionLabel={(option) => option}
-                            style={{ width: 220, marginLeft: 20}}
-                            renderInput={(params) =>
-                                <TextField {...params} type="text" label="Produktsuche" variant="outlined"/>}
-                        />
-                        <Button variant="contained" size="large" color="primary">
-                            <SearchIcon/>
-                        </Button>
-                    </Form>
-                </Navbar>
-            </motion.div>
-        </React.Fragment>
-    );
+                            </Button>
+                        </Link>
+                        <Form inline className="NavForm" onSubmit={search}>
+                            <Autocomplete
+                                freeSolo
+                                onInputChange={(event, value) => setSearchValue(value)}
+                                onChange={(event, value) => setSearchValue(value)}
+                                id="productSearch"
+                                className="mr-sm-2"
+                                options={searchItems}
+                                getOptionLabel={(option) => option}
+                                style={{ width: 220, marginLeft: 20}}
+                                renderInput={(params) =>
+                                    <TextField {...params} type="text" label="Produktsuche" variant="outlined"/>}
+                            />
+                            <Button onClick={search} variant="contained" size="large" color="primary">
+                                <SearchIcon/>
+                            </Button>
+                        </Form>
+                    </Navbar>
+                </motion.div>
+            </React.Fragment>
+        );
+    }
 }
 
 export default NavBar;

@@ -41,21 +41,21 @@ function LoginForms() {
                     <Row className="mt-4">
                         <Col>
                             <motion.div initial={{opacity: 0, x: -60}} animate={{opacity: 1, x:0}} transition={{delay: 0.2, duration: 1}} className="mx-2 p-4 cgrey shadow-lg rounded">
-                                <h2>Sarah</h2>
-                                <p>Möchte nachhaltig leben und einkaufen.
-                                    Individuelle Beratung beim Einkaufen,
-                                    gesunde Lebenmittel und leckeres Essen sind ihr wichtig.</p>
-                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 0.3, name: "Sarah"})}>
+                                <h2>Sabine</h2>
+                                <p>Spart gerne Geld und kauft ihre Lieblingsprodukte gerne im Angebot.
+                                    Es ist ihr wichtig diese vor dem Kauf einmal im Laden zu sehen.</p>
+                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 0, name: "Sabine"})}>
                                     Login
                                 </Button>
                             </motion.div>
                         </Col>
                         <Col>
                             <motion.div initial={{opacity: 0, x: 60}} animate={{opacity: 1, x:0}} transition={{delay: 0.3, duration: 1}} className="mx-2 p-4 cgrey shadow-lg rounded">
-                                <h2>Horst</h2>
-                                <p>Spart gerne Geld und kauft seine Lieblingsprodukte gerne im Angebot.
-                                    Es ist ihm wichtig diese vor dem Kauf einmal im Laden zu sehen.</p>
-                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 1, name: "Horst"})}>
+                                <h2>Andreas</h2>
+                                <p>Möchte nachhaltig leben und einkaufen.
+                                    Individuelle Beratung beim Einkaufen,
+                                    gesunde Lebenmittel und leckeres Essen sind ihm wichtig.</p>
+                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 1, name: "Andreas"})}>
                                     Login
                                 </Button>
                             </motion.div>

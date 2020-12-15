@@ -288,3 +288,28 @@ body {
 .price {
   font-size: 2em;
 }
+
+.cform-radio{
+  display: inline-flex;
+  top: -6px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  border: 0.14em solid $maincolor;
+  input {
+    display: flex;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.cform-enabled {
+  background-color: $maincolor;
+}
+
+.cml-12 {
+  margin-left: 12px;
+}

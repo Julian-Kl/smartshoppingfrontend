@@ -24,10 +24,10 @@ import { motion } from "framer-motion";
  */
 function List() {
     // State
-    const [refresh, setRefresh] = useState(false);
+    const [setRefresh] = useState(false);
 
     // Context List
-    const {list, setList, removeItem} = useContext(ListContext);
+    const {list, removeItem} = useContext(ListContext);
 
     // Total price calculation
     const totalPrice = () => {
