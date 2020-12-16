@@ -23,7 +23,6 @@ function Preferences() {
     // Context User
     const {user} = useContext(LoginStatus);
 
-    console.log(user.id)
     // Export
     if (user.id === 1) {
         return(
@@ -33,8 +32,8 @@ function Preferences() {
                         <Row>
                             <Col className="text-center">
                                 <h5 className="text-center">Demographische Angaben:</h5>
-                                <p className="mt-4 mb-0">Geschlecht: weiblich</p>
-                                <p className="mb-0">Alter: 55-60+</p>
+                                <p className="mt-4 mb-0">Geschlecht: männlich</p>
+                                <p className="mb-0">Alter: 18-25</p>
                                 <p>Aufgewachsen: Stadt</p>
                             </Col>
                         </Row>
@@ -60,11 +59,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
@@ -76,11 +75,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
@@ -92,11 +91,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
@@ -114,8 +113,8 @@ function Preferences() {
                         <Row>
                             <Col className="text-center">
                                 <h5 className="text-center">Demographische Angaben:</h5>
-                                <p className="mt-4 mb-0">Geschlecht: männlich</p>
-                                <p className="mb-0">Alter: 18-25</p>
+                                <p className="mt-4 mb-0">Geschlecht: weiblich</p>
+                                <p className="mb-0">Alter: 35-44</p>
                                 <p>Aufgewachsen: Dorf</p>
                             </Col>
                         </Row>
@@ -141,11 +140,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
@@ -157,11 +156,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
@@ -173,11 +172,11 @@ function Preferences() {
                                 <Form className="mt-4">
                                     <div>
                                         <p className="form-check-inline" >Gar nicht</p>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
-                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <Form.Check inline type='inline-radio' disabled className="cform-radio cform-enabled"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
+                                        <Form.Check inline type='inline-radio' disabled className="cform-radio"/>
                                         <p className="form-check-inline cml-12" >Sehr</p>
                                     </div>
                                 </Form>
