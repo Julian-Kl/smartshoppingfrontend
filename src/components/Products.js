@@ -16,7 +16,7 @@ import Col from 'react-bootstrap/Col';
 import Button from '@material-ui/core/Button';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-// Franer
+// Framer
 import { motion } from 'framer-motion';
 import { ProductsApiService } from '../services/ProductsApiService';
 

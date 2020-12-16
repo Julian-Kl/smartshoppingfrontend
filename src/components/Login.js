@@ -44,7 +44,7 @@ function LoginForms() {
                                 <h2>Sabine</h2>
                                 <p>Spart gerne Geld und kauft ihre Lieblingsprodukte gerne im Angebot.
                                     Es ist ihr wichtig diese vor dem Kauf einmal im Laden zu sehen.</p>
-                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 0, name: "Sabine"})}>
+                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 1, name: "Sabine"})}>
                                     Login
                                 </Button>
                             </motion.div>
@@ -55,7 +55,7 @@ function LoginForms() {
                                 <p>Möchte nachhaltig leben und einkaufen.
                                     Individuelle Beratung beim Einkaufen,
                                     gesunde Lebenmittel und leckeres Essen sind ihm wichtig.</p>
-                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 1, name: "Andreas"})}>
+                                <Button variant="contained" size="large" color="primary" onClick={() => setUser({id: 2, name: "Andreas"})}>
                                     Login
                                 </Button>
                             </motion.div>

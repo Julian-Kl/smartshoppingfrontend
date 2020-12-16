@@ -45,9 +45,13 @@ function NavBar() {
     const [searchValue, setSearchValue] = useState('');
     const [redirect, setRedirect] = useState(false);
 
+    const location = useLocation();
+
     useEffect(() => {
-        setRedirect(false);
-    }, [])
+        if(location !== '/'){
+            setRedirect(false);
+        }
+    }, [redirect])
 
     // Dropdown Menu
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,8 +61,6 @@ function NavBar() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const location = useLocation();
 
 
     // Sitename Funktion

@@ -2,7 +2,7 @@
 // Import
  */
 // React
-import React, { useContext } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 // Context
 import LoginStatus from '../contexts/LoginContext';
@@ -14,40 +14,122 @@ import Col from 'react-bootstrap/Col';
 
 // Framer
 import { motion } from 'framer-motion';
+import { SearchApiService } from "../services/SearchApiService";
+import Button from "@material-ui/core/Button";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import ListContext from "../contexts/ListContext";
 
 /*
 // Function
  */
 function Search(props) {
+    // State
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+
+    const searchApi = new SearchApiService();
+
+    const fetchAllProducts = async () => {
+        setIsLoaded(false);
+        try {
+            const products = await searchApi.getSearchResult(user.id, value);
+            console.log(products);
+            setItems(products);
+            setIsLoaded(true);
+        } catch (e) {
+            setError(e);
+            setIsLoaded(true);
+        }
+    };
+
     // Context User
     const {user} = useContext(LoginStatus);
+    // Context List
+    const { addItem } = useContext(ListContext);
 
+    // Search Value
     const value = props.match.params.value;
     const searchItems = ["Milch", "Brot", "Käse"];
     let validValue;
     validValue = searchItems.includes(value);
 
-    console.log("Searchvalue:");
-    console.log(value);
-    console.log("User ID:");
-    console.log(user.id);
+    // API Request
+    useEffect(() => {
+        if(validValue){
+            fetchAllProducts();
+        }
+    }, []);
 
     // Export
     if (validValue) {
-        return (
-            <React.Fragment>
-                <Container>
-                    <motion.div className="p-4 bg-white shadow-lg mt-4 rounded" initial={{opacity: 0, y: -10}}
-                                animate={{opacity: 1, y: 0}} transition={{delay: 0.2, duration: 0.6}}>
-                        <Row className="mt-4">
-                            <Col>
-                                <p className="text-center">richtige suche</p>
-                            </Col>
-                        </Row>
-                    </motion.div>
-                </Container>
-            </React.Fragment>
-        );
+        if (error) {
+            return (
+                <React.Fragment>
+                    <div className="bg-white mt-2">Error: {error.message}</div>
+                </React.Fragment>
+            );
+        } else if (!isLoaded) {
+            return (
+                <React.Fragment>
+                    <div className="text-white mt-4 rounded text-center">
+                        <p>laden...</p>
+                    </div>
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <React.Fragment>
+                    <Container>
+                        {items.map((item) => (
+                            <motion.div
+                                key={item.product_id}
+                                className="px-4 bg-white shadow-lg mt-4 rounded"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                            >
+                                <Row>
+                                    <Col xs={5} className="p-0 pl-3 pt-4">
+                                        <h4 className="mb-1">{item.title}</h4>
+                                        <p className="text-primary">{item.warnings}</p>
+                                    </Col>
+                                    <Col xs={3} className="p-0 pl-1  pt-4">
+                                        <p className="mb-2">Herkunft: {item.origin}</p>
+                                        <p className="">Gewicht: {item.weight} g</p>
+                                    </Col>
+                                    <Col xs={4} className="p-0 pr-3 my-auto">
+                                        <Button
+                                            className="d-inline float-right align-bottom"
+                                            onClick={() => {
+                                                addItem(
+                                                    item.product_id,
+                                                    item.title,
+                                                    item.warnings,
+                                                    item.origin,
+                                                    item.weight,
+                                                    item.price,
+                                                    item.distance
+                                                );
+                                            }}
+                                        >
+                                            <p className="price d-inline mt-4">
+                                                {item.price} €
+                                                <AddCircleIcon
+                                                    color="primary"
+                                                    fontSize="large"
+                                                    className="ml-3 mb-1"
+                                                />
+                                            </p>
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </motion.div>
+                        ))}
+                    </Container>
+                </React.Fragment>
+            );
+        }
     } else {
         return (
             <React.Fragment>

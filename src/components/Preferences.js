@@ -25,7 +25,7 @@ function Preferences() {
 
     console.log(user.id)
     // Export
-    if (user.id === 0) {
+    if (user.id === 1) {
         return(
             <React.Fragment>
                 <Container>
