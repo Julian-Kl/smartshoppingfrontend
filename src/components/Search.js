@@ -90,17 +90,17 @@ function Search(props) {
                                 transition={{ delay: 0.2, duration: 0.6 }}
                             >
                                 <Row>
-                                    <Col xs={5} className="p-0 pl-3 pt-4">
-                                        <h4 className="mb-1">{item.title}</h4>
+                                    <Col sm={5} className="p-0 pl-3 pt-4">
+                                        <h4 className="mb-1 product-title">{item.title}</h4>
                                         <p className="text-primary">{item.warnings}</p>
                                     </Col>
-                                    <Col xs={3} className="p-0 pl-1  pt-4">
+                                    <Col sm={3} className="p-sm-0 pl-sm-1  pt-sm-4">
                                         <p className="mb-2">Herkunft: {item.origin}</p>
-                                        <p className="">Gewicht: {item.weight} g</p>
+                                        <p className="">Gewicht: {item.weight}</p>
                                     </Col>
-                                    <Col xs={4} className="p-0 pr-3 my-auto">
+                                    <Col sm={4} className="p-sm-0 pr-3 my-auto">
                                         <Button
-                                            className="d-inline float-right align-bottom"
+                                            className="d-inline ml-xs-4 float-sm-right align-bottom"
                                             onClick={() => {
                                                 addItem(
                                                     item.product_id,
@@ -118,7 +118,7 @@ function Search(props) {
                                                 <AddCircleIcon
                                                     color="primary"
                                                     fontSize="large"
-                                                    className="ml-3 mb-1"
+                                                    className="ml-md-3 mb-1"
                                                 />
                                             </p>
                                         </Button>

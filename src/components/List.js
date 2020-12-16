@@ -60,16 +60,17 @@ function List() {
                     {list.map(item => (
                         <motion.div key={item.id} className="px-4 bg-white shadow-lg mt-4 rounded" initial={{opacity: 0, y: -10}} animate={{opacity: 1, y: 0}} transition={{delay: 0.2, duration: 0.6}}>
                             <Row>
-                                <Col xs={5} className="p-0 pl-3 pt-4">
-                                    <h4 className="mb-1">{item.title}</h4>
+                                <Col sm={5} className="p-0 pl-3 pt-4">
+                                    <h4 className="mb-1 product-title">{item.title}</h4>
                                     <p className="text-primary">{item.warnings}</p>
                                 </Col>
-                                <Col xs={3} className="p-0 pl-1  pt-4">
+                                <Col sm={3} className="p-sm-0 pl-sm-1  pt-sm-4">
                                     <p className="mb-2">Herkunft: {item.origin}</p>
-                                    <p className="">Gewicht: {item.weight} g</p>
+                                    <p className="">Gewicht: {item.weight}</p>
                                 </Col>
-                                <Col xs={4} className="p-0 pr-3 my-auto">
-                                    <Button className="d-inline float-right align-bottom" onClick={() => {
+                                <Col sm={4} className="p-sm-0 pr-3 my-auto">
+                                    <Button className="d-inline ml-xs-4 float-sm-right align-bottom"
+                                            onClick={() => {
                                         removeItem(item.product_id)
                                     }}>
                                         <p className="price d-inline mt-4">{item.price} €
@@ -84,13 +85,16 @@ function List() {
                 <Container>
                     <motion.div className="px-4 bg-white shadow-lg mt-4 rounded" initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} transition={{delay: 0.2, duration: 0.6}}>
                         <Row>
-                            <Col className="p-4">
+                            <Col sm={9} className="p-4 pt-sm-4">
                                 <Button variant="contained" size="large" color="primary" className="d-inline float-right align-bottom" onClick={orderList}>
                                     Sortieren für den Einkauf
                                 </Button>
                             </Col>
-                            <Col xs={3}>
-                                <p className="price d-inline mt-4 float-right">{totalPrice()} €</p>
+                            <Col sm={3}>
+                                <p className="total-price d-inline mt-sm-4 float-right">{totalPrice()} €</p>
+                                <p className="total-price mt-sm-4 float-right total-price-desc mr-2">
+                                    Gesamt:
+                                </p>
                             </Col>
                         </Row>
                     </motion.div>

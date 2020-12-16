@@ -40,7 +40,18 @@ function App() {
     // Context List
     const [list, setList] = useState([]);
     const addItem = (product_id, title, warnings, origin, weight, price, distance) => {
-        setList([...list, {product_id: product_id, title: title, warnings: warnings, origin: origin, weight: weight, price: price, distance: distance }])
+        let onList = false;
+        for(let i = 0; i < list.length; i++){
+            if(list[i].product_id === product_id){
+                onList = true;
+                alert('Produkt ist bereits auf der Einkaufsliste.');
+            } else {
+                onList = false;
+            }
+        }
+        if(!onList){
+            setList([...list, {product_id: product_id, title: title, warnings: warnings, origin: origin, weight: weight, price: price, distance: distance }])
+        }
     }
     const removeItem = (product_id) => {
         setList(list.filter(item => item.product_id !== product_id))
@@ -59,7 +70,7 @@ function App() {
         return (
             <Container fluid className="mx-auto">
                 <Row>
-                    <Col xs={12} sm={12} md={10} lg={8} xl={8} className="justify-content-center mx-auto fullscreen">
+                    <Col xs={12} sm={12} md={10} lg={8} xl={8} className="justify-content-center mx-auto fullscreen p-0">
                         <Router>
                             <Switch>
                                 {user ?

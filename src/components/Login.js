@@ -38,8 +38,8 @@ function LoginForms() {
                             </motion.div>
                         </Col>
                     </Row>
-                    <Row className="mt-4">
-                        <Col>
+                    <Row>
+                        <Col className="mt-4">
                             <motion.div initial={{opacity: 0, x: -60}} animate={{opacity: 1, x:0}} transition={{delay: 0.2, duration: 1}} className="mx-2 p-4 cgrey shadow-lg rounded">
                                 <h2>Andreas</h2>
                                 <p>Möchte nachhaltig leben und einkaufen.
@@ -49,7 +49,7 @@ function LoginForms() {
                                 </Button>
                             </motion.div>
                         </Col>
-                        <Col>
+                        <Col className="mt-4">
                             <motion.div initial={{opacity: 0, x: 60}} animate={{opacity: 1, x:0}} transition={{delay: 0.3, duration: 1}} className="mx-2 p-4 cgrey shadow-lg rounded">
                                 <h2>Sabine</h2>
                                 <p>Achtet beim Einkaufen wenig auf die Preise und sonstige Eigenschaften der Produkte.

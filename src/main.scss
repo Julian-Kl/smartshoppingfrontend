@@ -285,19 +285,36 @@ body {
   width: 125px;
 }
 
-.price {
-  font-size: 2em;
-}
-
 .cform-radio{
   display: inline-flex;
-  top: -6px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 1.6em;
-  height: 1.6em;
   border-radius: 50%;
   border: 0.14em solid $maincolor;
+  top: 0;
+  @media only screen and (max-width: 280px) {
+    width: 0.6em;
+    height: 0.6em;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  @media only screen and (min-width: 300px) and (max-width: 354px) {
+    width: 1em;
+    height: 1em;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  @media only screen and (min-width: 354px) and (max-width: 764px) {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  @media only screen and (min-width: 765px) {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   input {
     display: flex;
     opacity: 0;
@@ -312,4 +329,29 @@ body {
 
 .cml-12 {
   margin-left: 12px;
+}
+
+
+
+.price {
+  font-size: 2em;
+}
+
+.product-title{
+  @media only screen and (min-width: 480px) and (max-width: 559px) {
+    font-size: 1.4em;
+  }
+}
+
+.total-price {
+  font-size: 1.6em;
+}
+
+.total-price-desc {
+  @media only screen and (max-width: 479px){
+    display: inline;
+  }
+  @media only screen and (min-width: 480px){
+    display: none;
+  }
 }

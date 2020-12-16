@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 // Function
  */
 function Preferences() {
+
     // Context User
     const {user} = useContext(LoginStatus);
 
