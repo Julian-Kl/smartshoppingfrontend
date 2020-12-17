@@ -159,13 +159,13 @@ textarea {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix::before,
-.clearfix::after {
+.clearfix:before,
+.clearfix:after {
   content: " ";
   display: table;
 }
 
-.clearfix::after {
+.clearfix:after {
   clear: both;
 }
 
@@ -194,8 +194,8 @@ textarea {
 
 @media print {
   *,
-  *::before,
-  *::after {
+  *:before,
+  *:after {
     background: #fff !important;
     color: #000 !important;
     /* Black prints faster */
@@ -208,11 +208,11 @@ textarea {
     text-decoration: underline;
   }
 
-  a[href]::after {
+  a[href]:after {
     content: " (" attr(href) ")";
   }
 
-  abbr[title]::after {
+  abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
@@ -220,8 +220,8 @@ textarea {
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
     content: "";
   }
 
@@ -265,6 +265,7 @@ $maincolor: #4051B5;
 
 body {
   height: 100vh;
+  background-image: -webkit-linear-gradient(left, #0f0c29, #302b63, #0f0c29);
   background-image: linear-gradient(90deg, #0f0c29, #302b63, #0f0c29);
 }
 
@@ -286,6 +287,9 @@ body {
 }
 
 .cform-radio{
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   border-radius: 50%;
   border: 0.14em solid $maincolor;
@@ -316,8 +320,11 @@ body {
   }
 
   input {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     width: 0;
     height: 0;
   }
@@ -354,4 +361,20 @@ body {
   @media only screen and (min-width: 480px){
     display: none;
   }
+}
+
+.sticky-nav {
+  top: -1px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1000;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.sticky-list-options {
+  bottom: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1000;
+  box-shadow: 2px 2px 10px #000000;
 }

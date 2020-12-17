@@ -24,7 +24,7 @@ import { motion } from "framer-motion";
  */
 function List() {
     // State
-    const [setRefresh] = useState(false);
+    const [refresh, setRefresh] = useState(false);
 
     // Context List
     const {list, removeItem} = useContext(ListContext);
@@ -82,7 +82,7 @@ function List() {
                         </motion.div>
                     ))}
                 </Container>
-                <Container>
+                <Container className="sticky-list-options p-0">
                     <motion.div className="px-4 bg-white shadow-lg mt-4 rounded" initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} transition={{delay: 0.2, duration: 0.6}}>
                         <Row>
                             <Col sm={9} className="p-4 pt-sm-4">

@@ -146,7 +146,7 @@ function NavBar() {
     } else {
         return (
             <React.Fragment>
-                <motion.div initial={{opacity: 0, y: -10}} animate={{opacity: 1, y:0}} transition={{delay: 0, duration: 0.4}}>
+                <motion.div className="sticky-nav mx-auto" initial={{opacity: 0, y: -10}} animate={{opacity: 1, y:0}} transition={{delay: 0, duration: 0.4}}>
                     <Navbar expand="md" variant="light" bg="light" className="rounded">
                         <NavbarBrand className="navbar-brand cnavbar-location text-center">
                             {siteName()}

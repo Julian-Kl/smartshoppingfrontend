@@ -59,7 +59,7 @@ function Search(props) {
         if(validValue){
             fetchAllProducts();
         }
-    }, []);
+    }, [value]);
 
     // Export
     if (validValue) {
